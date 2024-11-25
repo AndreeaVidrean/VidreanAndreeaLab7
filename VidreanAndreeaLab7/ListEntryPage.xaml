@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    
+    
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:VidreanAndreeaLab7"
+             x:Class="VidreanAndreeaLab7.ListEntryPage"
+             Title="List Entry Page">
+
+    <!-- Toolbar pentru adăugarea unei liste -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Shopping List"
+                     Clicked="OnShopListAddedClicked" />
+    </ContentPage.ToolbarItems>
+
+    <!-- ListView pentru afișarea listelor -->
+    <ListView x:Name="listView"
+ Margin="20"
+ ItemSelected="OnListViewItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Description}"
+ Detail="{Binding Date}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
