@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VidreanAndreeaLab7.ShopPage"
+             Title="ShopPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <!-- Câmpuri pentru nume și adresă -->
+            <Editor Placeholder="Enter shop name" Margin="20"
+                    Text="{Binding ShopName}" HeightRequest="50" />
+            <Editor Placeholder="Enter shop address" Margin="20"
+                    Text="{Binding Adress}" HeightRequest="50" />
+
+            <!-- ListView pentru afișarea magazinelor -->
+            <ListView x:Name="listView" Margin="20"
+                      ItemsSource="{Binding Shops}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding ShopName}" Detail="{Binding Adress}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Grid pentru butoane -->
+            <Grid Margin="0,10,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Save Shop" Grid.Column="0"
+                        MaximumWidthRequest="200"
+                        Clicked="OnSaveButtonClicked" />
+                <Button Text="Show on Map" Grid.Column="1"
+                        MaximumWidthRequest="200"
+                        Clicked="OnShowMapButtonClicked" />
+            </Grid>
+
+            <!-- Buton pentru ștergere -->
+            <Button Text="Delete" 
+                    Clicked="OnDeleteButtonClicked" 
+                    BackgroundColor="Red" 
+                    TextColor="White" 
+                    CornerRadius="10" 
+                    Margin="0,10,0,0" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -14,5 +14,7 @@ namespace VidreanAndreeaLab7.Models
         [ForeignKey(typeof(ShopList))]
         public int ShopListID { get; set; }
         public int ProductID { get; set; }
+        [ForeignKey(typeof(Shop))]
+        public int ShopID { get; set; }
     }
 }
